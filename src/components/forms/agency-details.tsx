@@ -186,7 +186,6 @@ const AgencyDetails = ({ data }: Props) => {
     }
     setDeletingAgency(false);
   };
-
   return (
     <AlertDialog>
       <Card className="w-full">
