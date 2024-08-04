@@ -44,6 +44,9 @@ const Infobar = ({ notifications, subAccountId, className, role }: Props) => {
 
     setShowAll((prev) => !prev);
   };
+
+  console.log(role);
+
   return (
     <div
       className={twMerge(
@@ -75,7 +78,7 @@ const Infobar = ({ notifications, subAccountId, className, role }: Props) => {
             {allNotifications?.map((notification) => (
               <div
                 key={notification.id}
-                className="flex flex-col gap-y-2 mb-2 overflow-x-scroll text-ellipsis"
+                className="flex flex-col gap-y-2 mb-2 overflow-auto text-ellipsis"
               >
                 <div className="flex gap-2">
                   <Avatar>

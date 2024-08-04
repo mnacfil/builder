@@ -9,6 +9,7 @@ import UnauthorizedPage from "../unauthorized/page";
 import Sidebar from "@/components/sidebar";
 import BlurPage from "@/components/global/blur-page";
 import Infobar from "@/components/global/infobar";
+import { Role } from "@prisma/client";
 
 type Props = {
   children: React.ReactNode;
@@ -36,11 +37,15 @@ const Layout = async ({ children, params }: Props) => {
   if (notifications) {
     allNotif = notifications;
   }
+
   return (
     <div className="h-screen overflow-hidden">
       <Sidebar id={params.agencyId} type="agency" />
       <div className="md:pl-[300px]">
-        <Infobar notifications={allNotif} role={allNotif.User?.role} />
+        <Infobar
+          notifications={allNotif}
+          role={user.privateMetadata?.role as Role}
+        />
         <div className="relative">
           <BlurPage>{children}</BlurPage>
         </div>
